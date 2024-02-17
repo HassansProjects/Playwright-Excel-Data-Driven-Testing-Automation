@@ -1,5 +1,8 @@
 import {test , expect} from '@playwright/test';
 import Exceljs from 'exceljs'
+// To maximize the window, set the viewport to 1912x924 useviewport: {width: 1912, height: 924,}
+// We use this website to find the best resolution for the viewport.https://whatismyviewport.com/
+// test.use({viewport:{width: 1912, height: 924,}})
 
 test ('Data driven test using excel file', async ({page}) => {
 

@@ -14,7 +14,7 @@ module.exports = defineConfig({
   testDir: './tests',
   /* Maximum  time one test can run for. Zero (default) means no limit. */
   timeout: 30 * 1000,
-  expect:  {
+  expect: {
     /**
      * Maximum time expect() should wait for the condition  to be met.
      * For example in `await expect(locator).toHaveText();
@@ -40,25 +40,22 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: "on",
-    video:"on",
+    video: "on",
     launchOptions: {
-      /* Add additional browser arguments. See https://playwright.dev/docs/api/class-browsertype#browsertypelaunchoptions */
-      /* Add additional browser arguments. See https://playwright.dev/docs/launching#browser-arguments */
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--start-fullscreen, --window-size=1980x1040'
-      ],
-      slowMo: 100,
+
+      //slowMo: 10,
     }
-  
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1912, height: 924, }  // to maximize the window, set the viewport to 1912x924 useviewport. 
+        //use this website to find the best resolution for the viewport.https://whatismyviewport.com/
+      },
     },
 
     {
